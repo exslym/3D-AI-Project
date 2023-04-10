@@ -11,6 +11,7 @@ html {
 
 .testColorPicker {
 	color: rgb(100, 200, 255);
+	color: rgb(146, 235, 255);
 }
 
 @supports (font-variation-settings: normal) {
@@ -52,7 +53,7 @@ html {
 }
 
 .aipicker-textarea {
-	@apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none flex-1;
+	@apply w-full bg-transparent text-lg border border-gray-300 p-2 outline-none flex-1 placeholder-black resize-none overflow-y-auto;
 }
 
 .filepicker-container {
@@ -71,7 +72,7 @@ html {
 }
 
 .glassmorphism {
-	background: rgba(255, 255, 255, 0.25);
+	background: rgba(255, 255, 255, 0.5);
 	box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.07);
 	backdrop-filter: blur(4px);
 	-webkit-backdrop-filter: blur(4px);

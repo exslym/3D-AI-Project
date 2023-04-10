@@ -29,3 +29,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private keys
+.env
+*.env

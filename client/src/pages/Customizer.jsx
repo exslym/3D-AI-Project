@@ -47,8 +47,9 @@ const Customizer = () => {
 	const handleSubmit = async type => {
 		if (!prompt) return alert('Please enter a prompt');
 		try {
-			//* call our backend to generate an AI image
 			setGeneratingImg(true);
+
+			//* call our backend to generate an AI image
 			const response = await fetch('http://localhost:8080/api/v1/dalle', {
 				method: 'POST',
 				headers: {
@@ -84,9 +85,11 @@ const Customizer = () => {
 				break;
 			case 'stylishShirt':
 				state.isFullTexture = !activeFilterTab[tabName];
+				break;
 			default:
 				state.isLogoTexture = true;
 				state.isFullTexture = false;
+				break;
 		}
 
 		//* after setting the state, activeFilterTab is updated

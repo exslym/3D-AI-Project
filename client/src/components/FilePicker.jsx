@@ -22,13 +22,13 @@ const FilePicker = ({ file, setFile, readFile }) => {
 					type='outline'
 					title='Logo'
 					handleClick={() => readFile('logo')}
-					customStyles='text-lg'
+					customStyles='text-md'
 				/>
 				<CustomButton
 					type='filled'
 					title='Full'
 					handleClick={() => readFile('full')}
-					customStyles='text-lg'
+					customStyles='text-md'
 				/>
 			</div>
 		</div>
