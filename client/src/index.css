@@ -60,7 +60,10 @@ html {
 }
 
 .filepicker-label {
-	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm font-bold text-lg text-white bg-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+}
+.filepicker-text {
+	@apply mt-2 py-1.5 px-2 rounded-md shadow-sm bg-slate-200 opacity-90 text-gray-600 text-lg truncate;
 }
 
 .tab-btn {
@@ -94,3 +97,8 @@ input[type='file'] {
 .sketch-picker > div:nth-child(3) {
 	display: none !important;
 }
+
+/* .invertedColor p {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+} */
