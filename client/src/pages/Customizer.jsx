@@ -99,9 +99,6 @@ const Customizer = () => {
 						a.click();
 						canvas.remove();
 					});
-
-				console.log(tabName);
-
 				break;
 		}
 	};
