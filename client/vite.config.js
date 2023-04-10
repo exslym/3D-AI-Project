@@ -7,9 +7,9 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 const DEFAULT_OPTIONS = {
 	test: /\.(jpe?g|png|tiff|webp|svg|avif)$/i,
-	exclude: undefined,
-	include: undefined,
-	excludePublic: ['./public/**/*'],
+	// exclude: undefined,
+	// include: undefined,
+	excludePublic: ['*/public/**/*'],
 	includePublic: false,
 	logStats: true,
 	svg: {
@@ -61,9 +61,9 @@ const DEFAULT_OPTIONS = {
 };
 
 export default defineConfig({
+	base: './',
 	root: Path.resolve(__dirname, './src'),
 	publicDir: '../public',
-	base: './',
 
 	build: {
 		emptyOutDir: true,

@@ -4,7 +4,7 @@ import { useSnapshot } from 'valtio';
 
 import { download } from '../assets';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
-import config from '../config/config';
+import config, { serverUrl } from '../config/config';
 import { DecalTypes, EditorTabs, FilterTabs } from '../config/constants';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { fadeAnimation, slideAnimation } from '../config/motion';
@@ -50,7 +50,7 @@ const Customizer = () => {
 			setGeneratingImg(true);
 
 			//* call our backend to generate an AI image
-			const response = await fetch('http://localhost:8080/api/v1/dalle', {
+			const response = await fetch(`${serverUrl}/api/v1/dalle`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

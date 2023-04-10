@@ -6,7 +6,7 @@ import { useSnapshot } from 'valtio';
 import state from '../store';
 
 const Shirt = () => {
-	const { nodes, materials } = useGLTF('./shirt_baked.glb');
+	const { nodes, materials } = useGLTF('./model/shirt_baked.glb');
 	const snap = useSnapshot(state);
 
 	const logoTexture = useTexture(snap.logoDecal);
