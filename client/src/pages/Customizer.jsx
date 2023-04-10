@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useSnapshot } from 'valtio';
 
+import html2canvas from 'html2canvas';
 import { download } from '../assets';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 import config, { serverUrl } from '../config/config';
@@ -78,6 +79,32 @@ const Customizer = () => {
 		}
 	};
 
+	const capture = tabName => {
+		const date = Math.floor(Date.now() / 100);
+		console.log(date);
+		switch (tabName) {
+			case 'download':
+				const captureElement = document.querySelector('.capture');
+				html2canvas(captureElement)
+					.then(canvas => {
+						canvas.style.display = 'none';
+						document.body.appendChild(canvas);
+						return canvas;
+					})
+					.then(canvas => {
+						const image = canvas.toDataURL('image/png');
+						const a = document.createElement('a');
+						a.setAttribute('download', `my-tshirt-design-${date}.png`);
+						a.setAttribute('href', image);
+						a.click();
+						canvas.remove();
+					});
+
+				console.log(tabName);
+
+				break;
+		}
+	};
 	const handleActiveFilterTab = tabName => {
 		switch (tabName) {
 			case 'logoShirt':
@@ -142,7 +169,10 @@ const Customizer = () => {
 								tab={tab}
 								isFilterTab
 								isActiveTab={activeFilterTab[tab.name]}
-								handleClick={() => handleActiveFilterTab(tab.name)}
+								handleClick={() => {
+									handleActiveFilterTab(tab.name);
+									capture(tab.name);
+								}}
 							/>
 						))}
 					</motion.div>

@@ -1,8 +1,8 @@
-import ai from './ai.png';
-import download from './download.png';
-import fileIcon from './file.png';
-import logoShirt from './logo-tshirt.png';
-import stylishShirt from './stylish-tshirt.png';
-import swatch from './swatch.png';
+import ai from './images/ai.png';
+import download from './images/download.png';
+import fileIcon from './images/file.png';
+import logoShirt from './images/logo-tshirt.png';
+import stylishShirt from './images/stylish-tshirt.png';
+import swatch from './images/swatch.png';
 
 export { ai, download, fileIcon, logoShirt, stylishShirt, swatch };
