@@ -9,6 +9,10 @@ html {
 	font-family: 'Inter', sans-serif;
 }
 
+.testColorPicker {
+	color: rgb(100, 200, 255);
+}
+
 @supports (font-variation-settings: normal) {
 	html {
 		font-family: 'Inter var', sans-serif;
