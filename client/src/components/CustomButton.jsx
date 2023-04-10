@@ -28,7 +28,6 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
 			onClick={handleClick}
 		>
 			{title}
-			{/* <p>{title}</p> */}
 		</button>
 	);
 };
