@@ -53,7 +53,7 @@ html {
 }
 
 .aipicker-textarea {
-	@apply w-full bg-transparent lg:text-[1.8vmin] text-[100%] border border-gray-300 p-2 outline-none flex-1 placeholder-gray-600 resize-none overflow-y-auto rounded-md;
+	@apply w-full bg-transparent lg:text-[1.7vmin] text-[100%] border border-gray-300 p-2 outline-none flex-1 placeholder-gray-600 resize-none overflow-y-auto rounded-md;
 }
 
 .filepicker-container {

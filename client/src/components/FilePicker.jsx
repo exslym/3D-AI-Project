@@ -36,7 +36,7 @@ const FilePicker = ({ file, setFile, readFile }) => {
 				/>
 				<label
 					htmlFor='file-upload'
-					className='filepicker-label lg:text-[1.8vmin] text-[100%] font-bold'
+					className='filepicker-label lg:text-[1.7vmin] text-[100%] font-bold'
 					style={generateStyle()}
 				>
 					Upload File
@@ -49,13 +49,13 @@ const FilePicker = ({ file, setFile, readFile }) => {
 					type='outline'
 					title='Logo'
 					handleClick={() => readFile('logo')}
-					customStyles='lg:text-[1.8vmin] text-[100%] font-bold'
+					customStyles='lg:text-[1.7vmin] text-[100%] font-bold'
 				/>
 				<CustomButton
 					type='filled'
 					title='Full'
 					handleClick={() => readFile('full')}
-					customStyles='lg:text-[1.8vmin] text-[100%] font-bold'
+					customStyles='lg:text-[1.7vmin] text-[100%] font-bold'
 				/>
 			</div>
 		</div>
