@@ -7,11 +7,26 @@ import CustomButton from './CustomButton';
 const AIPicker = ({ type, prompt, setPrompt, generatingImg, handleSubmit }) => {
 	const snap = useSnapshot(state);
 
-	const generateStyle = type => {
+	const generateStyle = () => {
 		return {
-			color: getContrastingColor(snap.color),
-			borderColor: getContrastingColor(snap.color),
+			backgroundColor: 'rgb(226, 232, 240)',
+			opacity: '0.8',
+			color: 'rgb(75, 85, 99)',
+			borderColor: 'rgba(75, 85, 99, 0.2)',
 		};
+		// if (snap.color !== '#ffffff') {
+		// 	return {
+		// 		backgroundColor: getContrastingColor(snap.color),
+		// 		color: snap.color,
+		// 		borderColor: snap.color,
+		// 	};
+		// } else {
+		// 	return {
+		// 		backgroundColor: snap.color,
+		// 		color: getContrastingColor(snap.color),
+		// 		borderColor: getContrastingColor(snap.color),
+		// 	};
+		// }
 	};
 
 	return (
@@ -34,13 +49,13 @@ const AIPicker = ({ type, prompt, setPrompt, generatingImg, handleSubmit }) => {
 							type='outline'
 							title='AI Logo'
 							handleClick={() => handleSubmit('logo')}
-							customStyles='text-md'
+							customStyles='lg:text-[1.8vmin] text-[100%] font-bold'
 						/>
 						<CustomButton
 							type='filled'
 							title='AI Full'
 							handleClick={() => handleSubmit('full')}
-							customStyles='text-md'
+							customStyles='lg:text-[1.8vmin] text-[100%] font-bold'
 						/>
 					</>
 				)}

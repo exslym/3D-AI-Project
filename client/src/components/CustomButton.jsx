@@ -7,17 +7,17 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
 	const snap = useSnapshot(state);
 
 	const generateStyle = type => {
-		if (type === 'filled') {
+		if (snap.color !== '#ffffff') {
 			return {
 				backgroundColor: snap.color,
 				color: getContrastingColor(snap.color),
+				borderColor: getContrastingColor(snap.color),
 			};
-		} else if (type === 'outline') {
+		} else {
 			return {
-				// borderWidth: '1px',
-				// borderColor: snap.color,
-				backgroundColor: snap.color,
-				color: getContrastingColor(snap.color),
+				backgroundColor: getContrastingColor(snap.color),
+				color: snap.color,
+				borderColor: snap.color,
 			};
 		}
 	};

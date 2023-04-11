@@ -25,15 +25,15 @@ html {
 }
 
 .home {
-	@apply w-fit xl:h-full flex xl:justify-between justify-start items-start flex-col xl:py-8 xl:px-36 sm:p-8 p-6 max-xl:gap-7 absolute z-10;
+	@apply md:w-fit h-full flex xl:justify-between justify-start items-start flex-col max-xl:gap-7 absolute z-10 xl:py-8 lg:py-8 xl:px-36 sm:px-20 px-10 sm:p-8 p-8 sm:mx-auto w-full;
 }
 
 .home-content {
-	@apply flex-1 xl:justify-center justify-start flex flex-col gap-10;
+	@apply flex-1 md:justify-center justify-start flex flex-col sm:gap-10 gap-[2.5vmin];
 }
 
 .head-text {
-	@apply xl:text-[10rem] md:text-[6rem] text-[5rem] xl:leading-[11rem] leading-[7rem] font-black text-black;
+	@apply xl:text-[10rem] lg:text-[8rem] md:text-[6rem] sm:text-[5rem] text-[12vmin] leading-none font-black text-gray-700;
 }
 
 .download-btn {
@@ -53,7 +53,7 @@ html {
 }
 
 .aipicker-textarea {
-	@apply w-full bg-transparent text-lg border border-gray-300 p-2 outline-none flex-1 placeholder-black resize-none overflow-y-auto;
+	@apply w-full bg-transparent lg:text-[1.8vmin] text-[100%] border border-gray-300 p-2 outline-none flex-1 placeholder-gray-600 resize-none overflow-y-auto rounded-md;
 }
 
 .filepicker-container {
@@ -61,10 +61,10 @@ html {
 }
 
 .filepicker-label {
-	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm font-bold text-lg text-white bg-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-white bg-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
 }
 .filepicker-text {
-	@apply mt-2 py-1.5 px-2 rounded-md shadow-sm bg-slate-200 opacity-90 text-gray-600 text-lg truncate;
+	@apply mt-2 py-1.5 px-2 rounded-md shadow-sm bg-slate-200 border-[#4b556333] border opacity-80 text-gray-600 lg:text-[1.5vmin] text-[80%] truncate;
 }
 
 .tab-btn {

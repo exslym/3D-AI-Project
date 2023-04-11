@@ -9,17 +9,49 @@ const CameraRig = ({ children }) => {
 	const snap = useSnapshot(state);
 
 	useFrame((state, delta) => {
-		const isBreakpoint = window.innerWidth <= 1280;
-		const isMobile = window.innerWidth <= 600;
+		const isBreakpointLarge = window.innerWidth > 1920;
+		const isBreakpoint1920 = window.innerWidth > 1440 && window.innerWidth <= 1920;
+		const isBreakpoint1440 = window.innerWidth > 1280 && window.innerWidth <= 1440;
+		const isBreakpoint1280 = window.innerWidth > 1024 && window.innerWidth <= 1280;
+		const isBreakpoint768 = window.innerWidth > 768 && window.innerWidth <= 1024;
+		const isBreakpoint430 = window.innerWidth > 430 && window.innerWidth <= 768;
+		const isMobile = window.innerWidth > 320 && window.innerWidth <= 430;
 
 		//* set the initial position of the model
 		let targetPosition = [-0.4, 0, 2];
 		if (snap.intro) {
-			if (isBreakpoint) targetPosition = [0, 0.3, 2];
-			if (isMobile) targetPosition = [0, 0.2, 2.5];
+			switch (true) {
+				case isBreakpointLarge:
+					targetPosition = [-0.3, 0, 2.5];
+					break;
+				case isBreakpoint1920:
+					targetPosition = [-0.25, 0, 2];
+					break;
+				case isBreakpoint1440:
+					targetPosition = [-0.3, 0, 2];
+					break;
+				case isBreakpoint1280:
+					targetPosition = [-0.4, 0, 2.5];
+					break;
+				case isBreakpoint768:
+					targetPosition = [-0.3, 0, 2.8];
+					break;
+				case isBreakpoint430:
+					targetPosition = [0, 0.2, 3];
+					break;
+				case isMobile:
+					targetPosition = [0, 0.2, 3.5];
+					break;
+				default:
+					targetPosition = [0, 0.2, 3.5];
+					break;
+			}
 		} else {
-			if (isMobile) targetPosition = [0, 0, 2.5];
-			else targetPosition = [0, 0, 2];
+			if (isBreakpoint430) {
+				targetPosition = [0, 0, 2.8];
+			} else if (isMobile) {
+				targetPosition = [0, 0, 3];
+			} else targetPosition = [0, -0.02, 2];
 		}
 
 		//* set the camera position
