@@ -7,9 +7,9 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 const DEFAULT_OPTIONS = {
 	test: /\.(jpe?g|png|tiff|webp|svg|avif)$/i,
-	// exclude: undefined,
-	// include: undefined,
-	excludePublic: ['*/public/**/*'],
+	exclude: undefined,
+	include: undefined,
+	excludePublic: true,
 	includePublic: false,
 	logStats: true,
 	svg: {
@@ -65,6 +65,21 @@ export default defineConfig({
 	root: Path.resolve(__dirname, './src'),
 	publicDir: '../public',
 
+	css: {
+		devSourcemap: true,
+	},
+
+	plugins: [
+		react(),
+		ViteAliases(),
+		legacy({
+			targets: ['> 0.5%', 'last 2 versions', 'Firefox ESR', 'not dead'],
+		}),
+		ViteImageOptimizer({
+			DEFAULT_OPTIONS,
+		}),
+	],
+
 	build: {
 		emptyOutDir: true,
 		outDir: Path.resolve(__dirname, './build'),
@@ -89,19 +104,7 @@ export default defineConfig({
 			},
 		},
 	},
-	css: {
-		devSourcemap: true,
-	},
-	plugins: [
-		react(),
-		ViteAliases(),
-		ViteImageOptimizer({
-			DEFAULT_OPTIONS,
-		}),
-		legacy({
-			targets: ['> 0.5%', 'last 2 versions', 'Firefox ESR', 'not dead'],
-		}),
-	],
+
 	server: {
 		hmr: true,
 		port: 3000,

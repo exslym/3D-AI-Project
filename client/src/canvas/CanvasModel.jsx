@@ -1,10 +1,21 @@
+import { iOSFix } from '@config/helpers';
 import { Center, Environment } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
+import state from '@store/index';
+import { useSnapshot } from 'valtio';
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
 import Shirt from './Shirt';
 
 const CanvasModel = () => {
+	const snap = useSnapshot(state);
+
+	if (snap.intro) {
+		setTimeout(() => {
+			iOSFix();
+		}, 1000);
+	}
+
 	return (
 		<>
 			<div id='mainLoading'></div>

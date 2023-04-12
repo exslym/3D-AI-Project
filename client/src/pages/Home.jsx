@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
 import { useSnapshot } from 'valtio';
 import CustomButton from '../components/CustomButton';
+import { iOSFix } from '../config/helpers';
 import {
 	headContainerAnimation,
 	headContentAnimation,
@@ -13,12 +14,12 @@ import state from '../store';
 const Home = () => {
 	const snap = useSnapshot(state);
 
-	setTimeout(function () {
+	setTimeout(() => {
 		const mainLoader = document.querySelector('#mainLoading');
 		setTimeout(() => {
 			mainLoader.classList.add('disabled');
 		}, 5000);
-	}, 5000);
+	}, 1500);
 
 	return (
 		<AnimatePresence>
