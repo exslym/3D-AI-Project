@@ -10,7 +10,7 @@ html {
 }
 
 .testColorPicker {
-	color: rgb(100, 200, 255);
+	color: rgb(55, 66, 75);
 	color: rgb(146, 235, 255);
 }
 
@@ -25,7 +25,7 @@ html {
 }
 
 .home {
-	@apply md:w-fit h-full flex xl:justify-between justify-start items-start flex-col max-xl:gap-7 absolute z-10 xl:py-8 lg:py-8 xl:px-36 sm:px-20 px-10 sm:p-8 p-8 sm:mx-auto w-full;
+	@apply md:w-fit w-full md:h-full h-auto flex xl:justify-between justify-start items-start flex-col max-xl:gap-7 absolute z-10 xl:py-8 lg:py-8 xl:px-36 sm:px-20 px-10 sm:p-8 p-8 sm:mx-auto;
 }
 
 .home-content {
@@ -49,22 +49,22 @@ html {
 }
 
 .aipicker-container {
-	@apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] rounded-md flex flex-col gap-4;
+	@apply absolute left-full ml-3 glassmorphism p-3 w-[220px] h-[220px] rounded-md flex flex-col gap-4;
 }
 
 .aipicker-textarea {
-	@apply w-full bg-transparent lg:text-[1.7vmin] text-[100%] border border-gray-300 p-2 outline-none flex-1 placeholder-gray-600 resize-none overflow-y-auto rounded-md;
+	@apply w-full bg-transparent lg:text-[1.2rem] text-[100%] border border-gray-300 p-2 outline-none flex-1 placeholder-gray-600 resize-none overflow-y-auto rounded-md;
 }
 
 .filepicker-container {
-	@apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
+	@apply absolute left-full ml-3 glassmorphism p-3 w-[220px] h-[220px] flex flex-col rounded-md;
 }
 
 .filepicker-label {
 	@apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-white bg-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
 }
 .filepicker-text {
-	@apply mt-2 py-1.5 px-2 rounded-md shadow-sm bg-slate-200 border-[#4b556333] border opacity-80 text-gray-600 lg:text-[1.5vmin] text-[80%] truncate;
+	@apply mt-2 py-1.5 px-2 rounded-md shadow-sm bg-slate-200 border-[#4b556333] border opacity-80 text-gray-600 lg:text-[1rem] text-[80%] truncate;
 }
 
 .tab-btn {
@@ -97,6 +97,46 @@ input[type='file'] {
 
 .sketch-picker > div:nth-child(3) {
 	display: none !important;
+}
+
+#loading,
+#mainLoading {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 2rem;
+	height: 2rem;
+	/* border: 5px solid rgb(55, 66, 75);
+	border-top: 5px solid rgb(226, 232, 240); */
+	border: 3px solid rgb(209, 215, 222);
+	border-top: 3px solid rgb(55, 66, 75);
+	border-radius: 100%;
+	margin: auto;
+	animation: spin 1s infinite linear;
+	display: none;
+}
+#loading.display {
+	display: block;
+}
+
+#mainLoading {
+	display: block;
+}
+.aipicker-buttons.disabled {
+	opacity: 0.2;
+	pointer-events: none;
+}
+.aipicker-textarea.disabled {
+	pointer-events: none;
+}
+
+@keyframes spin {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
 }
 
 /* .invertedColor p {

@@ -40,8 +40,23 @@ const AIPicker = ({ type, prompt, setPrompt, generatingImg, handleSubmit }) => {
 				className='aipicker-textarea'
 				style={generateStyle(type)}
 			/>
+			<div id='loading'></div>
 			<div className='flex flex-wrap gap-3'>
-				{generatingImg ? (
+				<>
+					<CustomButton
+						type='outline'
+						title='AI Logo'
+						handleClick={() => handleSubmit('logo')}
+						customStyles='aipicker-buttons lg:text-[1.2rem] text-[100%] font-bold'
+					/>
+					<CustomButton
+						type='filled'
+						title='AI Full'
+						handleClick={() => handleSubmit('full')}
+						customStyles='aipicker-buttons lg:text-[1.2rem] text-[100%] font-bold'
+					/>
+				</>
+				{/* {generatingImg ? (
 					<CustomButton type='outline' title='Ask AI...' customStyles='text-lg' />
 				) : (
 					<>
@@ -49,16 +64,16 @@ const AIPicker = ({ type, prompt, setPrompt, generatingImg, handleSubmit }) => {
 							type='outline'
 							title='AI Logo'
 							handleClick={() => handleSubmit('logo')}
-							customStyles='lg:text-[1.7vmin] text-[100%] font-bold'
+							customStyles='lg:text-[1.2rem] text-[100%] font-bold'
 						/>
 						<CustomButton
 							type='filled'
 							title='AI Full'
 							handleClick={() => handleSubmit('full')}
-							customStyles='lg:text-[1.7vmin] text-[100%] font-bold'
+							customStyles='lg:text-[1.2rem] text-[100%] font-bold'
 						/>
 					</>
-				)}
+				)} */}
 			</div>
 		</div>
 	);

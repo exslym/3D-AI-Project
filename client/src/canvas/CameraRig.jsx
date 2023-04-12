@@ -40,10 +40,10 @@ const CameraRig = ({ children }) => {
 					targetPosition = [0, 0.2, 3];
 					break;
 				case isMobile:
-					targetPosition = [0, 0.2, 3.5];
+					targetPosition = [0, 0.3, 3.5];
 					break;
 				default:
-					targetPosition = [0, 0.2, 3.5];
+					targetPosition = [0, 0.3, 3.5];
 					break;
 			}
 		} else {

@@ -23,10 +23,34 @@ const Customizer = () => {
 		stylishShirt: false,
 	});
 
+	const loader = document.querySelector('#loading');
+
+	function displayLoading() {
+		loader.classList.add('display');
+		const aipickerButtons = document.querySelectorAll('.aipicker-buttons');
+		const aipickerTextArea = document.querySelector('.aipicker-textarea');
+		aipickerButtons.forEach(button => {
+			button.classList.add('disabled');
+			button.setAttribute('disabled', '');
+		});
+		aipickerTextArea.setAttribute('disabled', '');
+	}
+	function hideLoading() {
+		loader.classList.remove('display');
+		const aipickerButtons = document.querySelectorAll('.aipicker-buttons');
+		const aipickerTextArea = document.querySelector('.aipicker-textarea');
+		aipickerButtons.forEach(button => {
+			button.classList.remove('disabled');
+			button.removeAttribute('disabled');
+		});
+		aipickerTextArea.removeAttribute('disabled');
+	}
+
 	const handleSubmit = async type => {
 		if (!prompt) return alert('Please enter a prompt');
 		try {
 			setGeneratingImg(true);
+			displayLoading();
 
 			//* call our backend to generate an AI image
 			const response = await fetch(`${serverUrl}/api/v1/dalle`, {
@@ -40,13 +64,14 @@ const Customizer = () => {
 			});
 
 			const data = await response.json();
+			hideLoading();
 
 			handleDecals(type, `data:image/png;base64,${data.photo}`);
 		} catch (error) {
-			alert(error);
+			console.log(error);
 		} finally {
 			setGeneratingImg(false);
-			setActiveEditorTab('');
+			// setActiveEditorTab('');
 		}
 	};
 	const handleDecals = (type, result) => {
@@ -107,7 +132,7 @@ const Customizer = () => {
 	};
 
 	//* show tab content depending on the activeTab
-	const generateTabContent = tabName => {
+	const generateTabContent = () => {
 		switch (activeEditorTab) {
 			case 'colorpicker':
 				return <ColorPicker />;
