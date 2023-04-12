@@ -22,19 +22,19 @@ const CameraRig = ({ children }) => {
 		if (snap.intro) {
 			switch (true) {
 				case isBreakpointLarge:
-					targetPosition = [-0.3, 0, 2.5];
+					targetPosition = [-0.35, 0, 2.5];
 					break;
 				case isBreakpoint1920:
 					targetPosition = [-0.25, 0, 2];
 					break;
 				case isBreakpoint1440:
-					targetPosition = [-0.3, 0, 2];
+					targetPosition = [-0.25, 0, 2];
 					break;
 				case isBreakpoint1280:
-					targetPosition = [-0.4, 0, 2.5];
+					targetPosition = [-0.35, 0, 2.5];
 					break;
 				case isBreakpoint768:
-					targetPosition = [-0.3, 0, 2.8];
+					targetPosition = [-0.35, 0, 2.8];
 					break;
 				case isBreakpoint430:
 					targetPosition = [0, 0.2, 3];

@@ -13,6 +13,13 @@ import state from '../store';
 const Home = () => {
 	const snap = useSnapshot(state);
 
+	setTimeout(function () {
+		const mainLoader = document.querySelector('#mainLoading');
+		setTimeout(() => {
+			mainLoader.classList.add('disabled');
+		}, 5000);
+	}, 5000);
+
 	return (
 		<AnimatePresence>
 			{snap.intro && (
@@ -37,12 +44,12 @@ const Home = () => {
 					<motion.div className='home-content' {...headContainerAnimation}>
 						<motion.div {...headTextAnimation}>
 							<h1 className='head-text'>
-								LET'S <br className='md:block hidden' />
+								LET'S <br />
 								DO IT.
 							</h1>
 						</motion.div>
-						<motion.div {...headContentAnimation} className='flex flex-col gap-5'>
-							<p className='lg:max-w-md md:max-w-xs font-normal text-gray-500 lg:text-[1.5rem]  md:text-[1.4rem] sm:text-[1.2rem] text-[1.2rem]'>
+						<motion.div {...headContentAnimation} className='flex flex-col md:gap-5 gap-3'>
+							<p className='head-subtext'>
 								<strong>Create</strong> your unique and&nbsp;exclusive shirt with&nbsp;our brand-new
 								3D&nbsp;customization tool. <strong>Uleash your&nbsp;imagination</strong>{' '}
 								and&nbsp;define&nbsp;your&nbsp;own&nbsp;style.

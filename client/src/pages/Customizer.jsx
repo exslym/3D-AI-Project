@@ -1,12 +1,10 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useSnapshot } from 'valtio';
-
-import html2canvas from 'html2canvas';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 import { serverUrl } from '../config/config';
 import { DecalTypes, EditorTabs, FilterTabs } from '../config/constants';
-import { reader } from '../config/helpers';
+import { displayLoading, getScreenshot, hideLoading, reader } from '../config/helpers';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import state from '../store';
 
@@ -23,27 +21,13 @@ const Customizer = () => {
 		stylishShirt: false,
 	});
 
-	const loader = document.querySelector('#loading');
+	const mainLoader = document.querySelector('#mainLoading');
 
-	function displayLoading() {
-		loader.classList.add('display');
-		const aipickerButtons = document.querySelectorAll('.aipicker-buttons');
-		const aipickerTextArea = document.querySelector('.aipicker-textarea');
-		aipickerButtons.forEach(button => {
-			button.classList.add('disabled');
-			button.setAttribute('disabled', '');
-		});
-		aipickerTextArea.setAttribute('disabled', '');
-	}
-	function hideLoading() {
-		loader.classList.remove('display');
-		const aipickerButtons = document.querySelectorAll('.aipicker-buttons');
-		const aipickerTextArea = document.querySelector('.aipicker-textarea');
-		aipickerButtons.forEach(button => {
-			button.classList.remove('disabled');
-			button.removeAttribute('disabled');
-		});
-		aipickerTextArea.removeAttribute('disabled');
+	if (!snap.intro) {
+		mainLoader.classList.add('customizer');
+		setTimeout(() => {
+			mainLoader.classList.add('disabled');
+		}, 5000);
 	}
 
 	const handleSubmit = async type => {
@@ -82,29 +66,6 @@ const Customizer = () => {
 		}
 	};
 
-	const capture = tabName => {
-		switch (tabName) {
-			case 'download':
-				const captureElement = document.querySelector('.capture');
-				const date = Math.floor(Date.now() / 100);
-
-				html2canvas(captureElement)
-					.then(canvas => {
-						canvas.style.display = 'none';
-						document.body.appendChild(canvas);
-						return canvas;
-					})
-					.then(canvas => {
-						const image = canvas.toDataURL('image/png');
-						const a = document.createElement('a');
-						a.setAttribute('download', `my-tshirt-design-${date}.png`);
-						a.setAttribute('href', image);
-						a.click();
-						canvas.remove();
-					});
-				break;
-		}
-	};
 	const handleActiveFilterTab = tabName => {
 		switch (tabName) {
 			case 'logoShirt':
@@ -182,6 +143,7 @@ const Customizer = () => {
 	};
 
 	const goBack = () => {
+		mainLoader.classList.add('disabled');
 		setActiveEditorTab('');
 		state.intro = true;
 	};
@@ -214,7 +176,7 @@ const Customizer = () => {
 						/>
 					</motion.div>
 
-					<motion.div key='tabs' className='filtertabs-container' {...slideAnimation('up')}>
+					<motion.div key='tabs' className='filtertabs-container forIOS' {...slideAnimation('up')}>
 						{FilterTabs.map(tab => (
 							<Tab
 								key={tab.name}
@@ -223,7 +185,7 @@ const Customizer = () => {
 								isActiveTab={activeFilterTab[tab.name]}
 								handleClick={() => {
 									handleActiveFilterTab(tab.name);
-									capture(tab.name);
+									getScreenshot(tab.name);
 								}}
 							/>
 						))}
