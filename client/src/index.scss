@@ -66,6 +66,9 @@ html {
 
 .filtertabs-container {
 	@apply absolute z-10 bottom-5 right-0 left-0 w-full flex justify-center items-center flex-wrap gap-4;
+	@media screen and (max-width: 430px) {
+		bottom: 15%;
+	}
 }
 
 .aipicker-container {
@@ -106,8 +109,9 @@ input[type='file'] {
 }
 
 .sketch-picker {
-	width: 170px !important;
-	background: rgba(255, 255, 255, 0.25) !important;
+	width: 198px !important;
+	height: 208px !important;
+	background: rgba(255, 255, 255, 0.5) !important;
 	box-shadow: 0 2px 30px 0 rgba(31, 38, 135, 0.07) !important;
 	backdrop-filter: blur(4px) !important;
 	-webkit-backdrop-filter: blur(4px) !important;
@@ -133,15 +137,15 @@ input[type='file'] {
 		font-size: 4.4vmin;
 		line-height: 1.3;
 	}
-	.filtertabs-container.iOS {
-		bottom: 12%;
-	}
-	.capture {
-		height: 95% !important;
-	}
-	.capture.iOS {
-		height: 85% !important;
-	}
+	// .filtertabs-container.iOS {
+	// 	bottom: 12%;
+	// }
+	// .capture {
+	// 	height: 90% !important;
+	// }
+	// .capture.iOS {
+	// 	height: 85% !important;
+	// }
 }
 
 #loading,

@@ -14,15 +14,15 @@ const ColorPicker = () => {
 				onChange={color => (state.color = color.hex)}
 				presetColors={[
 					'#ffffff',
-					'#F0EDE2',
+					// '#F0EDE2',
 					'#98B4D4',
-					'#567277',
+					// '#567277',
 					'#009B77',
-					'#005520',
+					// '#005520',
 					'#BD4A55',
 					'#5B5EA6',
 					'#34568B',
-					'#4B4443',
+					// '#4B4443',
 					'#384C3B',
 					'#000000',
 				]}

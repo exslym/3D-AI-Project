@@ -40,18 +40,19 @@ const CameraRig = ({ children }) => {
 					targetPosition = [0, 0.2, 3];
 					break;
 				case isMobile:
-					targetPosition = [0, 0.3, 3.5];
+					targetPosition = [0, 0.18, 2.8];
 					break;
 				default:
-					targetPosition = [0, 0.3, 3.5];
+					// targetPosition = [0, 0.3, 3.5];
+					targetPosition = [0, 0.18, 2.8];
 					break;
 			}
 		} else {
 			if (isBreakpoint430) {
 				targetPosition = [0, 0, 2.8];
 			} else if (isMobile) {
-				targetPosition = [0, 0, 3];
-			} else targetPosition = [0, -0.02, 2];
+				targetPosition = [0, -0.05, 3];
+			} else targetPosition = [0, -0.025, 2];
 		}
 
 		//* set the camera position
