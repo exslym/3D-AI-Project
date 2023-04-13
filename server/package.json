@@ -2,14 +2,30 @@
 	"name": "server",
 	"version": "1.0.0",
 	"type": "module",
-	"description": "",
+	"description": "(server side)",
+	"license": "ISC",
+	"keywords": [
+		"nodemon",
+		"express",
+		"mongoose",
+		"dotenv",
+		"cors",
+		"cloudinary",
+		"openai"
+	],
+	"author": "exslym",
+	"homepage": "https://github.com/exslym/3D-AI-Project",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/exslym/3D-AI-Project.git"
+	},
+	"bugs": {
+		"url": "https://github.com/exslym/3D-AI-Project/issues"
+	},
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon index.js"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"dependencies": {
 		"cloudinary": "^1.35.0",
 		"cors": "^2.8.5",

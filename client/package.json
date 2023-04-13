@@ -3,6 +3,31 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"description": "3D t-shirts customizing tools with AI (DALL-E) using React, ThreeJS and Framer Motion, TailwindCSS",
+	"license": "ISC",
+	"keywords": [
+		"react",
+		"framer motion",
+		"threejs",
+		"tailwindcss",
+		"javascript",
+		"vite",
+		"vite-plugin-image-optimizer",
+		"gh-pages",
+		"html2canvas"
+	],
+	"author": "exslym",
+	"homepage": "https://github.com/exslym/3D-AI-Project",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/exslym/3D-AI-Project.git"
+	},
+	"bugs": {
+		"url": "https://github.com/exslym/3D-AI-Project/issues"
+	},
+	"browserslist": [
+		"cover 99.5%"
+	],
 	"scripts": {
 		"start": "vite --port 3000 --open",
 		"dev": "vite",
