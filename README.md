@@ -4,6 +4,8 @@
 
 ### An outstanding and impressive website for 3D t-shirts customizing tools with AI (DALL-E) using React, 3D-graphics and animations with ThreeJS and Framer Motion, TailwindCSS for styling, and openAI API!
 
+### Vercel Deployment: [3D-AI-Project](https://tshirts-customizing-ai-project.vercel.app/)
+
 ---
 
 ### Installation
