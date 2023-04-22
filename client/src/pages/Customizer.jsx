@@ -47,12 +47,16 @@ const Customizer = () => {
 				}),
 			});
 
-			const data = await response.json();
 			hideLoading();
 
-			handleDecals(type, `data:image/png;base64,${data.photo}`);
+			if (await response.json()) {
+				const data = await response.json();
+				handleDecals(type, `data:image/png;base64,${data.photo}`);
+			}
 		} catch (error) {
-			console.log(error);
+			alert(
+				'Too many requests, DALL-E daily limit is reached! Try to customize it by uploading your own files or playing with color picker.',
+			);
 		} finally {
 			setGeneratingImg(false);
 			// setActiveEditorTab('');
@@ -86,10 +90,14 @@ const Customizer = () => {
 	};
 
 	const readFile = type => {
-		reader(file).then(result => {
-			handleDecals(type, result);
-			setActiveEditorTab('');
-		});
+		if (file) {
+			reader(file).then(result => {
+				handleDecals(type, result);
+				setActiveEditorTab('');
+			});
+		} else {
+			alert('Please upload a file');
+		}
 	};
 
 	//* show tab content depending on the activeTab
