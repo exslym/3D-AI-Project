@@ -6,6 +6,7 @@ dotenv.config();
 
 const router = express.Router();
 
+/* you should make an .env file with OPENAI_API_KEY=... in the root of server directory  */
 const config = new Configuration({
 	apiKey: process.env.OPENAI_API_KEY,
 });
